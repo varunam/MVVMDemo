@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="login"
+            type="app.testproject.com.mvvmdemo.viewmodel.UserModel" />
+
+        <variable
+            name="loginEvent"
+            type="app.testproject.com.mvvmdemo.commands.UserLogin" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <EditText
+            android:id="@+id/emailId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@{login.emailHint}"
+            android:text="@={login.email}" />
+
+        <EditText
+            android:id="@+id/passwordId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@{login.passwordHint}"
+            android:text="@={login.password}" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:onClick="@{(v)->loginEvent.loginClicked()}"
+            android:text="Login" />
+
+    </LinearLayout>
+
+</layout>
